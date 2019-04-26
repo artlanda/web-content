@@ -1,0 +1,175 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+
+
+* {  /*universal selector*/
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /*changes the box for model borders or padding no longer edit for a total weight or heigh of a box*/
+        
+}
+
+body {  /*font definition font is getting inheriti*/
+    
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;  /*padding is not getting inheriti */
+    
+}
+
+.header {
+    
+    height: 95vh;  /*95 % of the view*/
+    background-image:
+        linear-gradient(to right bottom ,rgba(126,213,111,0.8),rgba(40,180,131,0.8)),
+        url(../img/hero.jpg);
+    background-size: cover;  /*fit the element inside of the box*/
+    background-position: top;
+    position: relative;
+    
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*formas en https://bennettfeely.com/clippy/  */
+    
+}
+
+.logo-box {
+    
+    position: absolute;
+    top: 40px;    /*apartir de la posicion relativa de su padre*/
+    left: 40px;   /*apartir de la posicion relativa de su padre*/
+    
+}
+
+.logo {
+    
+    height: 35px;
+    
+}
+
+
+.text-box {
+    
+    position: absolute;
+    top: 40%;   /*40 % en relacion al padre*/
+    left: 50%;  /*50 % en relacion al padre*/
+    transform: translate(-50%, -50%)/*50% en relacion al elemento en si mismo y no al 50% en relacion al padre*/        
+    
+}
+
+
+.heading-primary {
+    
+    color: #fff;
+    text-transform: uppercase;
+    
+    backface-visibility: hidden; /*el fondo de un elemento transformado esta escondido*/
+    
+}
+
+.heading-primary-main {
+    
+    display: block; /*block ocupa todo donde esta contenido y tiene salto de linea*/
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    
+    animation-name: moveInleft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    
+    /*
+    animation-delay: 3s;
+    animation-iteration-count: 3;
+    
+    */
+    
+}
+
+.heading-primary-sub {
+    
+    display: block;  /*block ocupa todo donde esta contenido y tiene salto de linea*/
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInleft {
+    
+    0% { /*start animation*/
+        opacity: 0;
+        transform: translateX(-100px); /*a  la izq de su posicion*/
+    }
+    
+    80% { /*almost the end animation*/
+        transform: translateX(10px);
+        
+    }
+    
+    100% { /*end animation*/
+        opacity: 1; 
+        transform: translate(0); /*en su estado que luce sin animacion */
+    }
+    
+}
+
+
+@keyframes moveInRight {
+    
+    0% { /*start animation*/
+        opacity: 0;
+        transform: translateX(100px); /*a  la derecha de su posicion*/
+    }
+    
+    
+    
+    80% { /*almost the end animation*/
+        transform: translateX(-10px);
+        
+    }
+    
+    100% { /*end animation*/
+        opacity: 1; 
+        transform: translate(0); /*en su estado que luce sin animacion */
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
