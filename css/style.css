@@ -62,7 +62,8 @@ body {  /*font definition font is getting inheriti*/
     position: absolute;
     top: 40%;   /*40 % en relacion al padre*/
     left: 50%;  /*50 % en relacion al padre*/
-    transform: translate(-50%, -50%)/*50% en relacion al elemento en si mismo y no al 50% en relacion al padre*/        
+    transform: translate(-50%, -50%);/*50% en relacion al elemento en si mismo y no al 50% en relacion al padre*/
+    text-align: center;
     
 }
 
@@ -73,6 +74,7 @@ body {  /*font definition font is getting inheriti*/
     text-transform: uppercase;
     
     backface-visibility: hidden; /*el fondo de un elemento transformado esta escondido*/
+    margin-bottom: 10px;
     
 }
 
@@ -146,6 +148,20 @@ body {  /*font definition font is getting inheriti*/
     
 }
 
+.btn:link, .btn:visited { /*pseudo clases pasan en un estado del elemento, como hover*/
+    
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;  
+}
+
+.btn-white {
+    
+    background-color: #fff;
+    color: #777;
+    
+}
 
 
 
