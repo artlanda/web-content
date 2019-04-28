@@ -9,22 +9,32 @@ Dark green: #28b485
 
 
 
-* {  /*universal selector*/
+*,
+*::after, /*para que el comportamiento universal y heredado aplique tmb a los pseudo elements*/
+*::before {  /*universal selector*/
     
     margin: 0;
     padding: 0;
-    box-sizing: border-box;  /*changes the box for model borders or padding no longer edit for a total weight or heigh of a box*/
+    box-sizing: inherit; /*best practice y poner en el body border-box*/
         
+}
+
+html { /*  root   font   size */
+    
+    font-size: 62.5%;  /* 62.5 % del 100% del font size defalul del browser (16 px) dando entonces 10 px que la base de calculo para todos los demas REM*/
+    
 }
 
 body {  /*font definition font is getting inheriti*/
     
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /*font-size: 16px;  ya no para poner todas las size en REM  y en el root se especifica*/  
     line-height: 1.7;
     color: #777;
-    padding: 30px;  /*padding is not getting inheriti */
+    padding: 3rem;  /*padding is not getting inheriti */
+    
+    box-sizing: border-box;  /*changes the box for model borders or padding no longer edit for a total weight or heigh of a box*/
     
 }
 
@@ -45,14 +55,14 @@ body {  /*font definition font is getting inheriti*/
 .logo-box {
     
     position: absolute;
-    top: 40px;    /*apartir de la posicion relativa de su padre*/
-    left: 40px;   /*apartir de la posicion relativa de su padre*/
+    top: 4rem;    /*apartir de la posicion relativa de su padre*/
+    left: 4rem;   /*apartir de la posicion relativa de su padre*/
     
 }
 
 .logo {
     
-    height: 35px;
+    height: 3.5rem;
     
 }
 
@@ -74,16 +84,16 @@ body {  /*font definition font is getting inheriti*/
     text-transform: uppercase;
     
     backface-visibility: hidden; /*el fondo de un elemento transformado esta escondido*/
-    margin-bottom: 16px;
+    margin-bottom: 6rem;
     
 }
 
 .heading-primary-main {
     
     display: block; /*block ocupa todo donde esta contenido y tiene salto de linea*/
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     
     animation-name: moveInleft;
     animation-duration: 1s;
@@ -100,9 +110,9 @@ body {  /*font definition font is getting inheriti*/
 .heading-primary-sub {
     
     display: block;  /*block ocupa todo donde esta contenido y tiene salto de linea*/
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     
     animation: moveInRight 1s ease-out;
 }
@@ -111,11 +121,11 @@ body {  /*font definition font is getting inheriti*/
     
     0% { /*start animation*/
         opacity: 0;
-        transform: translateX(-100px); /*a  la izq de su posicion*/
+        transform: translateX(-10rem); /*a  la izq de su posicion*/
     }
     
     80% { /*almost the end animation*/
-        transform: translateX(10px);
+        transform: translateX(1rem);
         
     }
     
@@ -131,13 +141,13 @@ body {  /*font definition font is getting inheriti*/
     
     0% { /*start animation*/
         opacity: 0;
-        transform: translateX(100px); /*a  la derecha de su posicion*/
+        transform: translateX(10rem); /*a  la derecha de su posicion*/
     }
     
     
     
     80% { /*almost the end animation*/
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
         
     }
     
@@ -152,7 +162,7 @@ body {  /*font definition font is getting inheriti*/
     
     0% { /*start animation*/
         opacity: 0;
-        transform: translateY(30px); /*a  la derecha de su posicion*/
+        transform: translateY(3rem); /*a  la derecha de su posicion*/
     }
     
     
@@ -167,24 +177,25 @@ body {  /*font definition font is getting inheriti*/
     
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;  
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s; /*se especifica al principio de la animacion initial state*/
     position: relative; /*referencia del pseudo element btn::after*/
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2); /*x  y  blur  opacity*/
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2); /*x  y  blur  opacity*/
     
 }
 
 .btn:active {
     
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
     
 }
 
@@ -201,7 +212,7 @@ body {  /*font definition font is getting inheriti*/
     display: inline-block; /*cause btn is inline block by definition*/
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;/*absolute position needs a reference and will be the first elemert with relative position thah can find*/
     top: 0; /*0 px en relacion al padre*/
     left: 0; /*0 px en relacion al padre*/
