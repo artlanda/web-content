@@ -1,265 +1,216 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
-
-
 *,
-*::after, /*para que el comportamiento universal y heredado aplique tmb a los pseudo elements*/
-*::before {  /*universal selector*/
-    
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit; /*best practice y poner en el body border-box*/
-        
+*::after,
+*::before {
+  /*universal selector*/
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*best practice y poner en el body border-box*/
 }
 
-html { /*  root   font   size */
-    
-    font-size: 62.5%;  /* 62.5 % del 100% del font size defalul del browser (16 px) dando entonces 10 px que la base de calculo para todos los demas REM*/
-    
+html {
+  /*  root   font   size */
+  font-size: 62.5%;
+  /* 62.5 % del 100% del font size defalul del browser (16 px) dando entonces 10 px que la base de calculo para todos los demas REM*/
 }
 
-body {  /*font definition font is getting inheriti*/
-    
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    /*font-size: 16px;  ya no para poner todas las size en REM  y en el root se especifica*/  
-    line-height: 1.7;
-    color: #777;
-    padding: 3rem;  /*padding is not getting inheriti */
-    
-    box-sizing: border-box;  /*changes the box for model borders or padding no longer edit for a total weight or heigh of a box*/
-    
+body {
+  /*font definition font is getting inheriti*/
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;  ya no para poner todas las size en REM  y en el root se especifica*/
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  /*padding is not getting inheriti */
+  box-sizing: border-box;
+  /*changes the box for model borders or padding no longer edit for a total weight or heigh of a box*/
 }
 
 .header {
-    
-    height: 95vh;  /*95 % of the view*/
-    background-image:
-        linear-gradient(to right bottom ,rgba(126,213,111,0.8),rgba(40,180,131,0.8)),
-        url(../img/hero.jpg);
-    background-size: cover;  /*fit the element inside of the box*/
-    background-position: top;
-    position: relative;
-    
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*formas en https://bennettfeely.com/clippy/  */
-    
+  height: 95vh;
+  /*95 % of the view*/
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /*fit the element inside of the box*/
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /*formas en https://bennettfeely.com/clippy/  */
 }
 
-.logo-box {
-    
-    position: absolute;
-    top: 4rem;    /*apartir de la posicion relativa de su padre*/
-    left: 4rem;   /*apartir de la posicion relativa de su padre*/
-    
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  /*apartir de la posicion relativa de su padre*/
+  left: 4rem;
+  /*apartir de la posicion relativa de su padre*/
 }
 
-.logo {
-    
-    height: 3.5rem;
-    
+.header__logo {
+  height: 3.5rem;
 }
 
-
-.text-box {
-    
-    position: absolute;
-    top: 40%;   /*40 % en relacion al padre*/
-    left: 50%;  /*50 % en relacion al padre*/
-    transform: translate(-50%, -50%);/*50% en relacion al elemento en si mismo y no al 50% en relacion al padre*/
-    text-align: center;
-    
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  /*40 % en relacion al padre*/
+  left: 50%;
+  /*50 % en relacion al padre*/
+  transform: translate(-50%, -50%);
+  /*50% en relacion al elemento en si mismo y no al 50% en relacion al padre*/
+  text-align: center;
 }
-
 
 .heading-primary {
-    
-    color: #fff;
-    text-transform: uppercase;
-    
-    backface-visibility: hidden; /*el fondo de un elemento transformado esta escondido*/
-    margin-bottom: 6rem;
-    
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /*el fondo de un elemento transformado esta escondido*/
+  margin-bottom: 6rem;
 }
 
-.heading-primary-main {
-    
-    display: block; /*block ocupa todo donde esta contenido y tiene salto de linea*/
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    
-    animation-name: moveInleft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    
-    /*
-    animation-delay: 3s;
-    animation-iteration-count: 3;
-    
-    */
-    
+.heading-primary--main {
+  display: block;
+  /*block ocupa todo donde esta contenido y tiene salto de linea*/
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInleft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /*
+  animation-delay: 3s;
+  animation-iteration-count: 3;
+
+  */
 }
 
-.heading-primary-sub {
-    
-    display: block;  /*block ocupa todo donde esta contenido y tiene salto de linea*/
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    
-    animation: moveInRight 1s ease-out;
+.heading-primary--sub {
+  display: block;
+  /*block ocupa todo donde esta contenido y tiene salto de linea*/
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInleft {
-    
-    0% { /*start animation*/
-        opacity: 0;
-        transform: translateX(-10rem); /*a  la izq de su posicion*/
-    }
-    
-    80% { /*almost the end animation*/
-        transform: translateX(1rem);
-        
-    }
-    
-    100% { /*end animation*/
-        opacity: 1; 
-        transform: translate(0); /*en su estado que luce sin animacion */
-    }
-    
+  0% {
+    /*start animation*/
+    opacity: 0;
+    transform: translateX(-10rem);
+    /*a  la izq de su posicion*/
+  }
+  80% {
+    /*almost the end animation*/
+    transform: translateX(1rem);
+  }
+  100% {
+    /*end animation*/
+    opacity: 1;
+    transform: translate(0);
+    /*en su estado que luce sin animacion */
+  }
 }
-
-
 @keyframes moveInRight {
-    
-    0% { /*start animation*/
-        opacity: 0;
-        transform: translateX(10rem); /*a  la derecha de su posicion*/
-    }
-    
-    
-    
-    80% { /*almost the end animation*/
-        transform: translateX(-1rem);
-        
-    }
-    
-    100% { /*end animation*/
-        opacity: 1; 
-        transform: translate(0); /*en su estado que luce sin animacion */
-    }
-    
+  0% {
+    /*start animation*/
+    opacity: 0;
+    transform: translateX(10rem);
+    /*a  la derecha de su posicion*/
+  }
+  80% {
+    /*almost the end animation*/
+    transform: translateX(-1rem);
+  }
+  100% {
+    /*end animation*/
+    opacity: 1;
+    transform: translate(0);
+    /*en su estado que luce sin animacion */
+  }
 }
-
 @keyframes moveInBottom {
-    
-    0% { /*start animation*/
-        opacity: 0;
-        transform: translateY(3rem); /*a  la derecha de su posicion*/
-    }
-    
-    
-    100% { /*end animation*/
-        opacity: 1; 
-        transform: translate(0); /*en su estado que luce sin animacion */
-    }
-    
+  0% {
+    /*start animation*/
+    opacity: 0;
+    transform: translateY(3rem);
+    /*a  la derecha de su posicion*/
+  }
+  100% {
+    /*end animation*/
+    opacity: 1;
+    transform: translate(0);
+    /*en su estado que luce sin animacion */
+  }
 }
-
-.btn:link, .btn:visited { /*pseudo clases pasan en un estado del elemento, como hover*/
-    
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;  
-    border-radius: 10rem;
-    transition: all .2s; /*se especifica al principio de la animacion initial state*/
-    position: relative; /*referencia del pseudo element btn::after*/
-    font-size: 1.6rem;
+.btn:link, .btn:visited {
+  /*pseudo clases pasan en un estado del elemento, como hover*/
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  /*se especifica al principio de la animacion initial state*/
+  position: relative;
+  /*referencia del pseudo element btn::after*/
+  font-size: 1.6rem;
 }
 
 .btn:hover {
-    
-    transform: translateY(-.3rem);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2); /*x  y  blur  opacity*/
-    
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /*x  y  blur  opacity*/
 }
 
 .btn:active {
-    
-    transform: translateY(-.1rem);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-    
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
-    
-    background-color: #fff;
-    color: #777;
-    
+.btn--white {
+  background-color: #fff;
+  color: #777;
 }
 
-.btn::after {/* pseudo element add virtual or hidden elements rihght after the element that we are selecting and we can style that pseudo element*/
-
-    content: ""; /*always specify content*/
-    display: inline-block; /*cause btn is inline block by definition*/
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;/*absolute position needs a reference and will be the first elemert with relative position thah can find*/
-    top: 0; /*0 px en relacion al padre*/
-    left: 0; /*0 px en relacion al padre*/
-    z-index: -1; /*define posisicones de los elementos uno arriba de otro -1 es atras */
-    transition: all .4s;/*initial state*/
-
+.btn::after {
+  /* pseudo element add virtual or hidden elements rihght after the element that we are selecting and we can style that pseudo element*/
+  content: "";
+  /*always specify content*/
+  display: inline-block;
+  /*cause btn is inline block by definition*/
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  /*absolute position needs a reference and will be the first elemert with relative position thah can find*/
+  top: 0;
+  /*0 px en relacion al padre*/
+  left: 0;
+  /*0 px en relacion al padre*/
+  z-index: -1;
+  /*define posisicones de los elementos uno arriba de otro -1 es atras */
+  transition: all 0.4s;
+  /*initial state*/
 }
 
-.btn-white::after {
-    
-    background-color: #fff;
-    
+.btn--white::after {
+  background-color: #fff;
 }
 
-.btn:hover::after { /*when we hover the botton THEN we want certain style for the pseudo elemen */
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;  /*desaparecer elemento (invisible)*/
-       
+.btn:hover::after {
+  /*when we hover the botton THEN we want certain style for the pseudo elemen */
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+  /*desaparecer elemento (invisible)*/
 }
 
-.btn-animated {
-    
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards; /*manda el style de la animacion al 0% antes de que aparezca la animacion aqui para que el boton inicie desaparecido y luego la animacion entre*/
-    
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+  /*manda el style de la animacion al 0% antes de que aparezca la animacion aqui para que el boton inicie desaparecido y luego la animacion entre*/
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*# sourceMappingURL=style.css.map */
