@@ -1,0 +1,23 @@
+// BASIC DEFINITIONS OF THE PROJECT
+
+*,
+*::after, /*para que el comportamiento universal y heredado aplique tmb a los pseudo elements*/
+*::before {  /*universal selector*/
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /*best practice y poner en el body border-box*/
+        
+}
+
+html { /*  root   font   size */
+    // this define what 1rem is
+    font-size: 62.5%;  /* 62.5 % del 100% del font size defalul del browser (16 px) dando entonces 10 px que la base de calculo para todos los demas REM*/
+    
+}
+
+body {
+    
+    box-sizing: border-box;  /*changes the box for model borders or padding no longer edit for a total weight or heigh of a box*/
+    
+}

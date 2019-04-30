@@ -1,0 +1,40 @@
+//elementos o componentes unidos que son comun en todas las paginas de mi proyecto
+.header {
+    
+    height: 95vh;  /*95 % of the view*/
+    background-image:
+        linear-gradient(to right bottom ,rgba($color-primary-light,0.8),rgba($color-primary-dark,0.8)),
+        url(../img/hero.jpg); // SOLO FUNCIONA EN SASS (rgba con variables)
+    background-size: cover;  /*fit the element inside of the box*/
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*formas en https://bennettfeely.com/clippy/  */
+
+    &__logo-box {
+
+        position: absolute;
+        top: 4rem;    /*apartir de la posicion relativa de su padre*/
+        left: 4rem;   /*apartir de la posicion relativa de su padre*/
+
+    }
+
+    &__logo {
+
+        height: 3.5rem;
+
+    }
+
+
+    &__text-box {
+
+        position: absolute;
+        top: 40%;   /*40 % en relacion al padre*/
+        left: 50%;  /*50 % en relacion al padre*/
+        transform: translate(-50%, -50%);/*50% en relacion al elemento en si mismo y no al 50% en relacion al padre*/
+        text-align: center;
+
+    }
+    
+    
+}
