@@ -1,6 +1,6 @@
 .row {
     max-width: $grid-width;   // 1140  px  es una medida estandar
-    background-color: #eee;
+    //background-color: #eee;
     margin: 0 auto;  //center this row in the viewport; TRICK FOR center block elements inside of another block element
 
     &:not(:last-child) {
@@ -10,7 +10,7 @@
     @include clearfix;
 
     [class^="col-"] {
-        background-color: orangered;
+        //background-color: orangered;
         float: left;
 
         &:not(:last-child) {

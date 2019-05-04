@@ -1,0 +1,43 @@
+.composition {
+    position: relative;
+
+    &__photo {
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute; // tiene que encontrar el primer padre con posicion relative por eso en .composition ponemos position
+        //esto hace que esten una sobre otra y de ahi ya se van moviendo una por una con p1 p2 y p3
+    
+        z-index: 10;  // valor inicial  
+        transition: all .2s;
+        outline-offset: 2rem;
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+
+        }
+        &--p2 {
+            right: 0;
+            top: 2rem;
+
+        }
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+
+        }
+
+        &:hover {
+            outline: 1.5rem solid $color-primary;  // crea el marco alrededor de la imagen de hover pero a diferencia de border se le puede poner offset
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;  // valores mayores aparecen en frente
+
+        }
+    }
+
+    &:hover &__photo:not(:hover) {// tan pronto hay hover en composition then select la foto anidada adentro de compsition and then select aquella que no esta en hover
+        transform: scale(.95);
+    }
+}
