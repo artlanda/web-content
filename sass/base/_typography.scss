@@ -14,7 +14,7 @@ body {  /*font definition font is getting inheriti*/
     color: $color-white;
     text-transform: uppercase;
     
-    backface-visibility: hidden; /*el fondo de un elemento transformado esta escondido*/
+    backface-visibility: hidden; /*hides the back part of an element*/
     margin-bottom: 6rem;
     
     &--main {

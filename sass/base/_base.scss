@@ -2,22 +2,41 @@
 
 *,
 *::after, /*para que el comportamiento universal y heredado aplique tmb a los pseudo elements*/
-*::before {  /*universal selector*/
-    
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit; /*best practice y poner en el body border-box*/
-        
+*::before {
+  /*universal selector*/
+
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*best practice y poner en el body border-box*/
 }
 
-html { /*  root   font   size */
-    // this define what 1rem is
-    font-size: 62.5%;  /* 62.5 % del 100% del font size defalul del browser (16 px) dando entonces 10 px que la base de calculo para todos los demas REM*/
-    
+html {
+  /*  root   font   size   define the size of entire layout*/
+  // this define what 1rem is
+  font-size: 62.5%; /* 62.5 % del 100% del font size defalul del browser (16 px) 
+  dando entonces 10 px que la base de calculo para todos los demas REM
+  1 rem = 10 px   10px/16px = 62.5%   */
+  @include respond(tab-land) {
+    // !  width  < 1200
+    font-size: 56.25%; //  ? si quiero que  1 rem= 9 px  entonces  9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    // !  width  < 900
+    font-size: 50%; //  ? si quiero que  1 rem= 8 px  entonces  8/16 = 50%
+  }
+
+  @include respond(phone) {
+    // !  width  < 600
+    font-size: 45%;
+  }
+
+  @include respond(big-desktop) {
+    // !  width  > 1800
+    font-size: 75%; //  ? si quiero que  1 rem= 12 px  entonces  12/16 = 75%
+  }
 }
 
 body {
-    
-    box-sizing: border-box;  /*changes the box for model borders or padding no longer edit for a total weight or heigh of a box*/
-    
+  box-sizing: border-box; /*changes the box for model borders or padding no longer edit for a total weight or heigh of a box*/
 }

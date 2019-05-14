@@ -1,13 +1,67 @@
 .section-about {
-    background-color: $color-grey-light-1;
-    padding: 25rem 0;
-    margin-top: -20vh; //  75 vh del poligono - 95 vh  del body header
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh; //  75 vh del poligono - 95 vh  del body header
 }
 
 .section-features {
-    padding: 20rem 0;
-    background-image:
-    linear-gradient(to right bottom ,rgba($color-primary-light,0.8),rgba($color-primary-dark,0.8)),
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
     url(../img/nat-4.jpg); // SOLO FUNCIONA EN SASS (rgba con variables)
-    background-size: cover;  /*fit the element inside of the box*/  
+  background-size: cover; /*fit the element inside of the box*/
+
+  transform: skewY(
+    -7deg
+  ); // inclina toda la seccion  se uso en lugar de clip-path
+  margin-top: -10rem;
+
+  & > * {
+    // child selector selec all DIRECT childs (not ALL just DIRECT para all quitamos >)
+    transform: skewY(7deg);
+  }
+}
+
+.section-tours {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0 15rem 0;
+  margin-top: -10rem;
+}
+
+.section-stories {
+  position: relative;
+  padding: 15rem 0;
+  //background-color: $color-grey-light-1;
+}
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
+}
+
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../img/nat-10.jpg);
+  background-size: 100%; // ? es lo mismo que usar COVER que ocupa el 100% del width
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+
+  height: 50rem; //  ?  dando altura la imagen ocupa a su contendor y se ve
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
 }

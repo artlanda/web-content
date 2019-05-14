@@ -1,99 +1,104 @@
 .btn {
-    
-    &:link, 
-    &:visited { /*pseudo clases pasan en un estado del elemento, como hover*/
+  &,  //  ?  se agrega para html <button> porque este tag no tiene pseudo clases link y visited con <a>
+  &:link,
+  &:visited {
+    /*pseudo clases pasan en un estado del elemento, como hover*/
 
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1.5rem 4rem;
-        display: inline-block;  
-        border-radius: 10rem;
-        transition: all .2s; /*se especifica al principio de la animacion initial state*/
-        position: relative; /*referencia del pseudo element btn::after*/
-        font-size: $default-font-size;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s; /*se especifica al principio de la animacion initial state*/
+    position: relative; /*referencia del pseudo element btn::after*/
+    font-size: $default-font-size;
+
+    // ?  CHANGE  for  the  <button>  element
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2); /*x  y  blur  opacity  RGB en variable solo funciona en SASS*/
+
+    &::after {
+      /*when we hover the botton THEN we want certain style for the pseudo elemen */
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; /*desaparecer elemento (invisible)*/
     }
+  }
 
-    &:hover {
+  &:active,
+  &:focus  //  ?   CHANGE  for  the  <button>  element
+ {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
 
-        transform: translateY(-.3rem);
-        box-shadow: 0 1rem 2rem rgba($color-black, .2); /*x  y  blur  opacity  RGB en variable solo funciona en SASS*/
-        
+    //  ? CHANGE  for  the  <button>  element
+    outline: none;
+  }
 
-        &::after { /*when we hover the botton THEN we want certain style for the pseudo elemen */
-            transform: scaleX(1.4) scaleY(1.6);
-            opacity: 0;  /*desaparecer elemento (invisible)*/
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-        }        
-
+    &::after {
+      background-color: $color-white;
     }
+  }
 
-    &:active {
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
 
-        transform: translateY(-.1rem);
-        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
-
+    &::after {
+      background-color: $color-primary;
     }
+  }
 
-    &--white {
+  &::after {
+    /* pseudo element add virtual or hidden elements rihght after the element that we are selecting and we can style that pseudo element*/
 
-        background-color: $color-white;
-        color: $color-grey-dark;
+    content: ""; /*always specify content*/
+    display: inline-block; /*cause btn is inline block by definition*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute; /*absolute position needs a reference and will be the first elemert with relative position thah can find*/
+    top: 0; /*0 px en relacion al padre*/
+    left: 0; /*0 px en relacion al padre*/
+    z-index: -1; /*define posisicones de los elementos uno arriba de otro -1 es atras */
+    transition: all 0.4s; /*initial state*/
+  }
 
-        &::after {
-
-            background-color: $color-white;
-
-        }        
-    }
-
-    &::after {/* pseudo element add virtual or hidden elements rihght after the element that we are selecting and we can style that pseudo element*/
-
-        content: ""; /*always specify content*/
-        display: inline-block; /*cause btn is inline block by definition*/
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        position: absolute;/*absolute position needs a reference and will be the first elemert with relative position thah can find*/
-        top: 0; /*0 px en relacion al padre*/
-        left: 0; /*0 px en relacion al padre*/
-        z-index: -1; /*define posisicones de los elementos uno arriba de otro -1 es atras */
-        transition: all .4s;/*initial state*/
-
-    }
-
-
-    &--animated {
-
-        animation: moveInBottom .5s ease-out .75s;
-        animation-fill-mode: backwards; /*manda el style de la animacion al 0% antes de que aparezca la animacion aqui para que el boton inicie desaparecido y luego la animacion entre*/
-
-    }    
-    
-    
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /*manda el style de la animacion al 0% antes de que aparezca la animacion aqui para que el boton inicie desaparecido y luego la animacion entre*/
+  }
 }
 
 .btn-text {
-    &:link,
-    &:visited {
-        font-size: $default-font-size;
-        color: $color-primary;
-        display: inline-block;
-        text-decoration: none;
-        border-bottom: 1px solid $color-primary; // asi se puede hacer padding entre la linea y el texto; con texto subrayado no se puede
-        padding: 3px;  // los px son tan pequeños que no hay ponerlos en REM
-        transition: all .2s;
-    }
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary; // asi se puede hacer padding entre la linea y el texto; con texto subrayado no se puede
+    padding: 3px; // los px son tan pequeños que no hay ponerlos en REM
+    transition: all 0.2s;
+  }
 
-    &:hover {
-        background-color: $color-primary;
-        color: $color-white;
-        box-shadow: 0 1rem 2rem rgba($color-black, .15);  // x, y, blur, rgba(color, opacity)
-        transform: translateY(-2px);
-    }
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15); // x, y, blur, rgba(color, opacity)
+    transform: translateY(-2px);
+  }
 
-    &:active {
-        box-shadow: 0 .5rem 1rem rgba($color-black, .15);  // x, y, blur, rgba(color, opacity)
-        transform: translateY(0);
-    }
-
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15); // x, y, blur, rgba(color, opacity)
+    transform: translateY(0);
+  }
 }

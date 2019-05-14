@@ -5,8 +5,8 @@
         width: 55%;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
         border-radius: 2px;
-        position: absolute; // tiene que encontrar el primer padre con posicion relative por eso en .composition ponemos position
-        //esto hace que esten una sobre otra y de ahi ya se van moviendo una por una con p1 p2 y p3
+        position: absolute; // ! tiene que encontrar el primer padre con posicion relative por eso en .composition ponemos position
+        // ! esto hace que esten una sobre otra y de ahi ya se van moviendo una por una con p1 p2 y p3
     
         z-index: 10;  // valor inicial  
         transition: all .2s;

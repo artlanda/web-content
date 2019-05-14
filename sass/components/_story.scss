@@ -1,0 +1,69 @@
+.story {
+  width: 75%;
+  margin: 0 auto; // center a  block element inside a block element
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem; //! 6 + 3  del tramslate x
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  /* & > * {  direct child no va a jalar para enderezas todo 
+     ! transform: skewX(12deg);  solo funciona con el texto por que ya hay otra transform en shape y hay que especificarla explicita
+  } */
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(
+      50% at 50% 50%
+    ); //! radio de circulo  y diametro  necesita ser flotado y con dimensiones width y height
+    clip-path: circle(50% at 50% 50%); //! ocupa clip path y shape
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); // ? explicito el skewX no como direct child
+    position: relative; // ? para que el caption pueda centrarse con posicion absoluta
+  }
+
+  &__img {
+    //! imagenes responsivas SIEMPRE necesitan width
+    height: 100%; // ? 100% del padre  que es shape que son 15 * 15
+    transform: translateX(-4rem) scale(1.4); // ? el scale es para el estado inicial de la animacion
+    backface-visibility: hidden; // !  corrije el defecto al final de las animaciones
+    transition: all 0.5s;
+  }
+
+  &__text {
+    transform: skewX(12deg); // ? explicito el skewX no como direct child
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+      -50%,
+      20%
+    ); //  ?  para el efecto hay que bajar las letras 20 % estado inicial
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden; // !  corrije el defecto al final de las animaciones
+  }
+
+  &:hover &__caption {
+    // ?  tanpronto hay hover en story el caption (letras) van a aparecer (animacion)
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}
